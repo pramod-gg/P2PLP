@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(collection = "userDb")
+@Document(collection = "user")
 public class User {
 
     private String firstName;
