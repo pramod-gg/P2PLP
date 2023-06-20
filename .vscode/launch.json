@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-P2plpApplication<p2plp>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.stackroute.p2plp.P2plpApplication",
+            "projectName": "p2plp",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
