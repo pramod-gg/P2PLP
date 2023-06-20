@@ -1,7 +1,5 @@
 package com.stackroute.p2plp.model;
 
-import java.util.List;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -9,17 +7,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(collection = "user")
-public class User {
-
-    private String firstName;
-    private String lastName;
+@Document(collection = "loan")
+public class Loan {
     @Id
-    private String email;
-    private String password;
-    private List<Loan> loans;
+    private int loanId;
+    private Double loanAmount; 
+    private Double interestRate;
+    private Integer tenure;
 }

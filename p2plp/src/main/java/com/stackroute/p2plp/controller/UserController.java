@@ -57,16 +57,16 @@ public class UserController {
         return responseEntity;
     }
 
-    @PutMapping("/user/{email}")
-    public ResponseEntity<?> updateUser(@RequestBody User user, @PathVariable String email) {
-        try {
-            userService.updateUser(user);
-            responseEntity = ResponseEntity.ok().body("User updated successfully");
-        } catch (Exception e) {
-            responseEntity = ResponseEntity.badRequest().body(e.getMessage());
-        }
-        return responseEntity;
-    }
+    // @PutMapping("/user/{email}")
+    // public ResponseEntity<?> updateUser(@RequestBody User user, @PathVariable String email) {
+    //     try {
+    //         userService.updateUser(user);
+    //         responseEntity = ResponseEntity.ok().body("User updated successfully");
+    //     } catch (Exception e) {
+    //         responseEntity = ResponseEntity.badRequest().body(e.getMessage());
+    //     }
+    //     return responseEntity;
+    // }
     
     @DeleteMapping("/user/{email}")
     public ResponseEntity<?> deleteUser(@PathVariable String email) {
