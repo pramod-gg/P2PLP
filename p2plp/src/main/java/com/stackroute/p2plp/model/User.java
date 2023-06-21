@@ -21,5 +21,4 @@ public class User {
     @Id
     private String email;
     private String password;
-    private List<Loan> loans;
 }

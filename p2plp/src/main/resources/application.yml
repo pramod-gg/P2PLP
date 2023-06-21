@@ -1,5 +1,4 @@
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://pramod:admin@db01.ege9xlf.mongodb.net/?retryWrites=true&w=majority
-      database: user
+      uri: mongodb+srv://pramod:admin@db01.ege9xlf.mongodb.net/user?retryWrites=true&w=majority
