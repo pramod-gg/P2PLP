@@ -1,6 +1,5 @@
 package com.stackroute.p2plp.controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpHeaders;
@@ -17,14 +16,14 @@ import java.io.IOException;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("file")
+@RequestMapping("/api/v1/file")
 public class FileController {
 
     @Autowired
     private FileService fileService;
 
     @PostMapping("/upload")
-    public ResponseEntity<?> upload(@RequestParam("file")MultipartFile file) throws IOException {
+    public ResponseEntity<?> upload(@RequestParam("file") MultipartFile file) throws IOException {
         return new ResponseEntity<>(fileService.addFile(file), HttpStatus.OK);
     }
 
@@ -33,7 +32,7 @@ public class FileController {
         LoadFile loadFile = fileService.downloadFile(id);
 
         return ResponseEntity.ok()
-                .contentType(MediaType.parseMediaType(loadFile.getFileType() ))
+                .contentType(MediaType.parseMediaType(loadFile.getFileType()))
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + loadFile.getFileName() + "\"")
                 .body(new ByteArrayResource(loadFile.getFile()));
     }
