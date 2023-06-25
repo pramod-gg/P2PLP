@@ -10,4 +10,5 @@ import com.stackroute.p2plp.model.User;
 @Repository
 public interface UserRepository extends MongoRepository<User, String> {
     Optional<User> findByFirstName(String name);
+    Optional<User> findByEmail(String email);
 }

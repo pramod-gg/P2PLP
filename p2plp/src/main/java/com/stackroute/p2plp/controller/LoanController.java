@@ -16,39 +16,39 @@ import com.stackroute.p2plp.model.Loan;
 import com.stackroute.p2plp.service.LoanService;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/")
 public class LoanController {
 
     @Autowired
     private LoanService loanService;
     ResponseEntity<?> responseEntity;
 
-    @PreAuthorize("hasRole('ROLE_LENDER','ROLE_ADMIN','ROLE_BORROWER')")
+    // @PreAuthorize("hasRole('ROLE_LENDER','ROLE_ADMIN','ROLE_BORROWER')")
     @GetMapping("/loan/{loanId}")
     public ResponseEntity<?> getLoanById(int loanId) {
         return ResponseEntity.ok(loanService.getLoanById(loanId));
     }
 
     @GetMapping("/loan")
-    @PreAuthorize("hasAuthority('LENDER')")
+    // @PreAuthorize("hasAuthority('LENDER')")
     public ResponseEntity<?> getAllLoans() {
         return ResponseEntity.ok(loanService.getAllLoans());
     }
 
     @PostMapping("/loan")
-    @PreAuthorize("hasAuthority('ADMIN','BORROWER')")
+    // @PreAuthorize("hasAuthority('ADMIN','BORROWER')")
     public ResponseEntity<?> addLoan(@RequestBody Loan loan) {
         return ResponseEntity.ok(loanService.addLoan(loan));
     }
 
-    @PreAuthorize("hasRole('ROLE_ADMIN','ROLE_BORROWER')")
+    // @PreAuthorize("hasRole('ROLE_ADMIN','ROLE_BORROWER')")
     @PutMapping("/loan/{loanId}")
     public ResponseEntity<?> updateLoan(@RequestBody Loan loan, @PathVariable int loanId) {
         loan.setLoanId(loanId);
         return ResponseEntity.ok(loanService.updateLoan(loan));
     }
 
-    @PreAuthorize("hasRole( 'ROLE_ADMIN','ROLE_BORROWER')")
+    // @PreAuthorize("hasRole( 'ROLE_ADMIN','ROLE_BORROWER')")
     @DeleteMapping("/loan/{loanId}")
     public ResponseEntity<?> deleteLoan(@PathVariable int loanId) {
         loanService.deleteLoan(loanId);
